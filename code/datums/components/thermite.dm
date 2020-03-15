@@ -43,13 +43,13 @@
 	master.cut_overlay(overlay)
 	return ..()
 
-/datum/component/thermite/InheritComponent(datum/component/thermite/newC, i_am_original, _amount)
+/datum/component/thermite/InheritComponent(datum/component/thermite/newC, i_am_original, list/arguments)
 	if(!i_am_original)
 		return
 	if(newC)
 		amount += newC.amount
 	else
-		amount += _amount
+		amount += arguments[1]
 
 /datum/component/thermite/proc/thermite_melt(mob/user)
 	var/turf/master = parent

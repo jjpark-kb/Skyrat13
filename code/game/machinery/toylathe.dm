@@ -46,12 +46,7 @@
 							)
 
 /obj/machinery/autoylathe/Initialize()
-	var/static/list/allowed_materials = list(
-		/datum/material/iron,
-		/datum/material/glass,
-		/datum/material/plastic
-		)
-	AddComponent(/datum/component/material_container, allowed_materials, 0, TRUE, null, null, CALLBACK(src, .proc/AfterMaterialInsert))
+	AddComponent(/datum/component/material_container, list(/datum/material/iron, /datum/material/glass, /datum/material/plastic), 0, TRUE, null, null, CALLBACK(src, .proc/AfterMaterialInsert))
 	. = ..()
 
 	wires = new /datum/wires/autoylathe(src)
